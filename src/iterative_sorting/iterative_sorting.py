@@ -1,5 +1,6 @@
 # TO-DO: Complete the selection_sort() function below
-def selection_sort(arr):
+# https://www.youtube.com/watch?v=B5m3L8aZifo&feature=youtu.be
+def selection_sort_test2(arr):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
         cur_index = i
@@ -7,13 +8,60 @@ def selection_sort(arr):
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc)
         # Your code here
+        index_to_right = cur_index + 1
 
+    return arr
+    
+
+
+
+def selection_sort_test2(arr):
+    # loop through n-1 elements
+    for i in range(0, len(arr) - 1):
+        cur_index = i
+        smallest_index = cur_index
+        # TO-DO: find next smallest element
+        # (hint, can do in 3 loc)
+        # Your code here
+        for a in arr[i:-1]:
+            if a < smallest_index:
+                new_smallest_index = a
+                cur_index = new_smallest_index
+
+                #print(new_smallest_index)
+
+        # current element, 
+        # find element smaller than current element
+        # swap current element with smallest element
+
+        # if the "i" is less than cur_index, then cur_index = i
+
+        #for index 0, find items in everything to the right of index 0 that is bigger than zero. replace 0 with that item and move 0 into the position of the other item. 
+        #Then move on to index 2. find item on the right of it that is smaller than it. If nothing on the right of 2 is smaller than 2, then just leave 2 where it is
 
         # TO-DO: swap
         # Your code here
 
+
     return arr
 
+
+
+def selection_sort_test(arr):
+    for i in arr:
+        current = arr[i]
+        for a in range(arr[i:-1]):
+            if a < current:
+                arr[current] = arr[a]
+                arr[a] = arr[current]
+
+        # current element, 
+        # find element smaller than current element
+        # swap current element with smallest element
+
+        # if the "i" is less than cur_index, then cur_index = i
+
+    return arr
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
