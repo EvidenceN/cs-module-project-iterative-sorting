@@ -2,6 +2,23 @@
 # https://www.youtube.com/watch?v=B5m3L8aZifo&feature=youtu.be
 def selection_sort(arr):
     # loop through n-1 elements
+    for i in range(0, len(arr)):
+        cur_index = i
+        smallest_index = cur_index
+        # TO-DO: find next smallest element
+        # (hint, can do in 3 loc)
+        # Your code here
+        index_to_right = cur_index + 1
+        for a in range(index_to_right, len(arr)):
+            if arr[a] < arr[smallest_index]:
+                smallest_index = a
+
+        arr[smallest_index], arr[cur_index] = arr[cur_index], arr[smallest_index]
+
+    return arr
+    
+def selection_sort_practice(arr):
+    # loop through n-1 elements
     for i in range(0, len(arr) - 1):
         cur_index = i
         smallest_index = cur_index
@@ -20,8 +37,6 @@ def selection_sort(arr):
             cur_index = index_to_right
 
     return arr
-    
-
 
 
 def selection_sort_test2(arr):
