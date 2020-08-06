@@ -1,6 +1,6 @@
 # TO-DO: Complete the selection_sort() function below
 # https://www.youtube.com/watch?v=B5m3L8aZifo&feature=youtu.be
-def selection_sort_test2(arr):
+def selection_sort(arr):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
         cur_index = i
@@ -9,6 +9,15 @@ def selection_sort_test2(arr):
         # (hint, can do in 3 loc)
         # Your code here
         index_to_right = cur_index + 1
+        if index_to_right < smallest_index:
+
+            # swap the positions of the 2 integers
+            arr[smallest_index] = index_to_right
+            arr[index_to_right] = smallest_index
+        else:
+            # the current number remains in it's position
+            # then the next number becomes the current index
+            cur_index = index_to_right
 
     return arr
     
@@ -66,7 +75,15 @@ def selection_sort_test(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    for i in range(0, len(arr) - 1):
+        current = arr[i]
+        next_current = arr[i+1]
 
+        if next_current > current:
+            arr[i] = next_current
+            arr[i+1] = current
+        else:
+            current = arr[0]
 
     return arr
 
