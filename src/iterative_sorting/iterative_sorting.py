@@ -105,6 +105,7 @@ def bubble_sort_test(arr):
 def bubble_sort(arr):
     swaps_occurred = True
     while swaps_occurred:
+        swaps_occurred = False
         for i in range(0, len(arr) -1):
             if arr[i] > arr[i +1]:
                 # swap
