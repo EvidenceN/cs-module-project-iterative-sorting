@@ -88,7 +88,7 @@ def selection_sort_test(arr):
     return arr
 
 # TO-DO:  implement the Bubble Sort function below
-def bubble_sort(arr):
+def bubble_sort_test(arr):
     # Your code here
     for i in range(0, len(arr) - 1):
         current = arr[i]
@@ -99,6 +99,17 @@ def bubble_sort(arr):
             arr[i+1] = current
         else:
             current = arr[0]
+
+    return arr
+
+def bubble_sort(arr):
+    swaps_occurred = True
+    while swaps_occurred:
+        for i in range(0, len(arr) -1):
+            if arr[i] > arr[i +1]:
+                # swap
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+                swaps_occurred = True
 
     return arr
 
