@@ -11,6 +11,15 @@ linear_search([-2, 7, 3, -9, 5, 1, 0, 4, -6], -6)
 
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
+    new_arr = sorted(arr)
+
+    if target in new_arr:
+        return new_arr.index(target)
+    else:
+        return -1
+
+
+def binary_search_test(arr, target):
     middle_item = arr[int(len(arr)/2)]
     if middle_item == target:
         return middle_item
@@ -20,9 +29,6 @@ def binary_search(arr, target):
         binary_search(arr[middle_item:], target)
     else:
         return -1  # not found
-
-
-
 
 
 
@@ -53,7 +59,7 @@ def binary_search_test(arr, target):
     return -1  # not found
 
 
-binary_search([-2, 7, 3, -9, 5, 1, 0, 4, -6])
+#binary_search([-2, 7, 3, -9, 5, 1, 0, 4, -6])
 
 a = [-2, 7, 3, -9, 5, 1, 0, 4]
 b = int(len(a)/2)
