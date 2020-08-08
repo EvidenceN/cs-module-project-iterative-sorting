@@ -10,7 +10,7 @@ linear_search([-2, 7, 3, -9, 5, 1, 0, 4, -6], -6)
 
 
 # Write an iterative implementation of Binary Search
-def binary_search(arr, target):
+def binary_search_test(arr, target):
     new_arr = sorted(arr)
 
     if target in new_arr:
@@ -18,22 +18,69 @@ def binary_search(arr, target):
     else:
         return -1
 
+def binary_search(my_list, search_item):
+    low = 0
+    high = len(my_list) - 1
 
-def binary_search_test(arr, target):
-    middle_item = arr[int(len(arr)/2)]
-    if middle_item == target:
-        return middle_item
-    elif middle_item < target:
-        binary_search(arr[:middle_item], target)
-    elif middle_item > target:
-        binary_search(arr[middle_item:], target)
+    while low <= high:
+        middle = (low + high) // 2
+        guess = my_list[middle]
+        if guess == search_item:
+            return middle
+        if guess > search_item:
+            high = middle - 1
+        else:
+            low = middle + 1
+    return -1
+
+
+def binary_search_recursive(arr, target):
+    
+    if len(arr) > 1:
+        middle_item = arr[int(len(arr)/2)]
     else:
-        return -1  # not found
+        return arr
+
+    left = []
+    right = []
+
+    # checking if the middle item is the target
+    if middle_item == target:
+        return arr.index(middle_item)
+
+    # adding everything to the left and right side to its own list
+    else:
+        for i in arr:
+            if i < middle_item:
+                left.append(i)
+            else:
+                right.append(i)
+        return binary_search(left, target) + binary_search(right, target)
+    
+    return -1  # not found
 
 
 
 
-
+def binary_search_test3(arr, target):
+    while len(arr) > 1:
+        middle_item = arr[int(len(arr)/2)]
+        if middle_item == target:
+            return arr.index(middle_item)
+        elif middle_item < target:
+            # re-define arr
+            arr = arr[:middle_item]
+            # repeat the process from beginning
+            binary_search(arr, target)
+            return arr.index(middle_item)
+        elif middle_item > target:
+            # redefine arr
+            arr = arr[middle_item:]
+            # repeat the process from beginning
+            binary_search(arr, target)
+            return arr.index(middle_item)
+        else:
+            return -1  # not found
 
 
 
